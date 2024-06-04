@@ -1,27 +1,31 @@
-<?php ob_start(); ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <title><?= $titre ?></title>
+</head>
+<body>
+    <nav class="uk-navbar-container">
+        <ul>
+            <li><a href="../index.php?action=listFilms">Films</a></li>
+            <li><a href="../index.php?action=listActeurs">Acteurs</a></li>
+            <li><a href="../index.php?action=listRealisateurs">Réalisateurs</a></li>
+            <li><a href="../index.php?action=listGenres">Genres</a></li>
+            <li><a href="../index.php?action=listRoles">Rôles</a></li>
+        </ul>
+    </nav>
 
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> films</p>
-
-<table class="uk-table uk-table-striped">
-    <thead>
-        <tr>
-            <th>TITRE</th>
-            <th>ANNEE SORTIE</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            foreach($requete->fetchAll() as $film) { ?>
-                <tr>
-                    <td><?= $film["titre"] ?></td>
-                    <td><?= $film["annee_sortie"] ?></td>
-                </tr>
-        <?php } ?>
-    </tbody>
-</table>
-
-<?php
-$titre = "Liste des films";
-$titre_secondaire = "Liste des films";
-$contenu = ob_get_clean();
-require "view/template.php";
+    <div id="wrapper" class="uk-container uk-container-expand">
+        <main>
+            <div id="contenu">
+                <h1 class="uk-heading-divider">PDO Cinema</h1>
+                <h2 class="uk-heading-bullet"><?= $titre_secondaire ?></h2>
+                <?= $contenu ?>
+            </div>
+        </main>
+    </div>
+    
+</body>
+</html>
