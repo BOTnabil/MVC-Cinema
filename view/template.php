@@ -14,7 +14,11 @@
             <li><a href="index.php?action=listRealisateurs">Réalisateurs</a></li>
             <li><a href="index.php?action=listGenres">Genres</a></li>
             <li><a href="index.php?action=listRoles">Rôles</a></li>
-            <li><a href="index.php?action=addGenre">Ajouter données</a></li>
+            <li><a href="index.php?action=addGenre">Ajouter genre</a></li>
+            <li><a href="index.php?action=addRole">Ajouter role</a></li>
+            <li><a href="index.php?action=addActeur">Ajouter acteur</a></li>
+            <li><a href="index.php?action=addRealisateur">Ajouter realisateur</a></li>
+            <li><a href="index.php?action=addRealisateur">Ajouter Film</a></li>
         </ul>
     </nav>
 

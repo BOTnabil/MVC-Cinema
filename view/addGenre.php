@@ -3,7 +3,6 @@ session_start();
 ob_start(); 
 ?>
 
-<h1>Ajouter un genre</h1>
         <form action="index.php?action=addGenre" method="post">
             <p>
                 <label>
