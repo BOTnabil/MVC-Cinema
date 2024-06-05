@@ -7,21 +7,22 @@
     <title><?= $titre ?></title>
 </head>
 <body>
-    <nav class="uk-navbar-container">
+    <nav>
         <ul>
-            <li><a href="../index.php?action=listFilms">Films</a></li>
-            <li><a href="../index.php?action=listActeurs">Acteurs</a></li>
-            <li><a href="../index.php?action=listRealisateurs">Réalisateurs</a></li>
-            <li><a href="../index.php?action=listGenres">Genres</a></li>
-            <li><a href="../index.php?action=listRoles">Rôles</a></li>
+            <li><a href="index.php?action=listFilms">Films</a></li>
+            <li><a href="index.php?action=listActeurs">Acteurs</a></li>
+            <li><a href="index.php?action=listRealisateurs">Réalisateurs</a></li>
+            <li><a href="index.php?action=listGenres">Genres</a></li>
+            <li><a href="index.php?action=listRoles">Rôles</a></li>
+            <li><a href="index.php?action=addGenre">Ajouter données</a></li>
         </ul>
     </nav>
 
-    <div id="wrapper" class="uk-container uk-container-expand">
+    <div id="wrapper">
         <main>
             <div id="contenu">
-                <h1 class="uk-heading-divider">PDO Cinema</h1>
-                <h2 class="uk-heading-bullet"><?= $titre_secondaire ?></h2>
+                <h1>PDO Cinema</h1>
+                <h2><?= $titre_secondaire ?></h2>
                 <?= $contenu ?>
             </div>
         </main>

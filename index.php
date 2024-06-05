@@ -22,5 +22,6 @@ if(isset($_GET["action"])){
         case "detailActeur" : $ctrlCinema->detailActeur($id); break;
         case "detailRealisateur" : $ctrlCinema->detailRealisateur($id); break;
         case "detailRole" : $ctrlCinema->detailRole($id); break;
+        case "addGenre" : $ctrlCinema->addGenre(); break;
     }
 }
