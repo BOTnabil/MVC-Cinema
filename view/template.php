@@ -18,7 +18,7 @@
             <li><a href="index.php?action=addRole">Ajouter role</a></li>
             <li><a href="index.php?action=addActeur">Ajouter acteur</a></li>
             <li><a href="index.php?action=addRealisateur">Ajouter realisateur</a></li>
-            <li><a href="index.php?action=addRealisateur">Ajouter Film</a></li>
+            <li><a href="index.php?action=addFilm">Ajouter Film</a></li>
         </ul>
     </nav>
 

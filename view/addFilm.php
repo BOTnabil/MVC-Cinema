@@ -4,7 +4,7 @@ ob_start();
 ?>
 
         <form action="index.php?action=addFilm" method="post">
-            <p> Informations de l'acteur :<br> 
+            <p> Informations du film :<br> 
                 <label>
                     Titre :
                     <input type="text" name="nom_film">
@@ -25,15 +25,35 @@ ob_start();
             <p>
                 <label>
                     Synopsis :
-                    <input type="text" name="synopsis">
+                    <textarea name="synopsis" rows="20"></textarea>
                 </label>
             </p>
             <p>
                 <label>
-                    Realisateur :
-                    <input type="text" name="realisateur">
+                    Note :
+                    <input type="number" name="note">
                 </label>
             </p>
+            <p>
+                <label>
+                    Genre(s) :<br>
+                    <?php
+                        foreach($requeteGenre->fetchAll() as $genre) { ?>
+                            <input type="checkbox" name="genres[]" value="<?= $genre["id_genre"] ?>"><?= $genre["nom_genre"]?><br>
+                        <?php }
+                    ?>
+                </select>
+            </p>
+            <p>
+                <select name="realisateur">
+                    <?php
+                        foreach($requeteRealisateur->fetchAll() as $realisateur) { ?>
+                            <option value="<?= $realisateur["id_realisateur"] ?>"><?= $realisateur["prenom"]." ".$realisateur["nom"] ?></option>
+                        <?php }
+                    ?>
+                </select>
+            </p>
+            
             <p>
                 <input type="submit" name="submit" value="Ajouter le film">
             </p>

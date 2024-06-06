@@ -1,20 +1,24 @@
-<?php ob_start();?>
+<?php ob_start();
+$film = $requeteDetailFilm->fetch();
+$genres = $requeteGenres->fetchAll();
+$casting = $requeteCasting->fetchAll();
 
+?>
 
-<?php
-    foreach($requeteDetailFilm->fetchAll() as $info){ ?>
-        <p> Année de sortie: <?=$info["annee_sortie"]?>
-        <p> Durée: <?=$info["duree"]?> minutes
-        <p> Synopsis: <?=$info["synopsis"]?>
-        <p> Note: <?=$info["note"]?>
-        <p> Réalisateur: <a href="index.php?action=detailRealisateur&id=<?=$info["id_realisateur"]?>"><?=$info["prenom"] ." ".$info["nom"]?></a>
-        <p> Genre: <a href="index.php?action=pageGenre&id=<?=$info["id_genre"]?>"><?=$info["nom_genre"]?></a>
-    <?php } ?>
+<p> Année de sortie: <?=$film["annee_sortie"]?>
+<p> Durée: <?=$film["duree"]?> minutes
+<p> Synopsis: <?=$film["synopsis"]?>
+<p> Note: <?=$film["note"]?>
+<p> Réalisateur: <a href="index.php?action=detailRealisateur&id=<?=$film["id_realisateur"]?>"><?=$film["prenom"] ." ".$film["nom"]?></a>
+<p> Genre(s): <?php
+            foreach($genres as $genre){ ?>
+                    <?= $genre["nom_genre"] ?>
+            <?php } ?> </p>
 
 <table class="uk-table uk-table-striped">
     <tbody>
         <?php
-            foreach($requeteCasting->fetchAll() as $cast){ ?>
+            foreach($casting as $cast){ ?>
                 <tr>
                     <td>
                         <a href="index.php?action=detailActeur&id=<?=$cast["id_acteur"]?>"><?= $cast["prenom"]." ".$cast["nom"]?></a> dans le rôle de <a href="index.php?action=detailRole&id=<?=$cast["id_role"]?>"><?= $cast["nom_role"] ?></a>
@@ -25,7 +29,7 @@
 </table>
 
 <?php
-$titre = $info["nom_film"];
-$titre_secondaire = $info["nom_film"];
+$titre = $film["nom_film"];
+$titre_secondaire = $film["nom_film"];
 $contenu = ob_get_clean();
 require "view/template.php";
